@@ -3,6 +3,9 @@ def cicdProjects = [
   [scm: 'git@git.drfirst.com:devops-se/chef-dev-pi.git',dev:'srahman,fahmed,vkumar,jsingh',qa:'srahman,fahmed,vkumar,jsingh',sysOps:'ksatpathy,bkhanal,pnguyen,hpotti',
   ,config_reponame:'',label:'slave',app_platform: 'pi',app_type:"pianalytics",svn_path:'https://svnexternal.drfirst.com/svn/deploy/pi2/properties/pi2.instance.properties/pi2-toolbar-analytics-server.instance.properties', special_char:''],
 
+	[scm: 'git@git.drfirst.com:devops-se/chef-dev-pi.git',dev:'srahman,fahmed,vkumar,jsingh',qa:'srahman,fahmed,vkumar,jsingh',sysOps:'ksatpathy,bkhanal,pnguyen,hpotti',
+  ,config_reponame:'',label:'slave',app_platform: 'pi',app_type:"pianalytics1",svn_path:'https://svnexternal.drfirst.com/svn/deploy/pi2/properties/pi2.instance.properties/pi2-toolbar-analytics-server.instance.properties', special_char:''],
+
 ]
 
 for (project in cicdProjects) {
