@@ -887,7 +887,7 @@ machine_name=$line
         roomList {
         sparkRoom {
         rName("Common")
-        rId("0e436070-aa12-11e8-afe")
+        rId("0e436070-aa12-11e8-afef-ef8b0")
         }
         }
         credentialsId("Webexbot")
@@ -896,6 +896,34 @@ machine_name=$line
           publishers {
              wsCleanup()
             }
+          }
+          deliveryPipelineView("${app_platform}_${app_type}") {
+          pipelineInstances(0)
+          showAggregatedPipeline(true)
+          showDescription(true)
+          columns(1)
+          allowRebuild(true)
+          updateInterval(1)
+          enableManualTriggers()
+          showAvatars()
+          allowPipelineStart(true)
+          allowRebuild(true)
+           enableManualTriggers(true)
+           linkToConsoleLog(true)
+           useRelativeLinks(true)
+          pipelines {
+              component('DEV & QA', "RR_${app_type}_Config")
+              component('Staging',"DS_${app_type}_Generator")
+              component('Prod & DR',"VZ_${app_type}_Generator")
+              component('QAProd & Demo',"QAProd_${app_type}_DeployAll")
+              }
+          configure { view ->
+          def components = view / componentSpecs
+          components.'se.diabol.jenkins.pipeline.DeliveryPipelineView_-ComponentSpec'[0] << lastJob("RQ_${app_type}_SignOff")
+          components.'se.diabol.jenkins.pipeline.DeliveryPipelineView_-ComponentSpec'[1] << lastJob("VZ_${app_type}_Generator")
+          components.'se.diabol.jenkins.pipeline.DeliveryPipelineView_-ComponentSpec'[2] << lastJob("DP_${app_type}_DeployAll")
+          components.'se.diabol.jenkins.pipeline.DeliveryPipelineView_-ComponentSpec'[3] << lastJob("Demo_${app_type}_DeployAll")
+          }
           }
           
 queue("RR_${app_type}_Generator")
