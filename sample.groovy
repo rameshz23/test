@@ -1,6 +1,6 @@
 def cicdProjects = [
 
-   [application_platform: 'Test',application_name:'smp101',scm: 'git@git.drfirst.com:devops-se/chef-dev-rcopia.git',dev:'devuda',qa:'devuda',sysOps:'devuda',label:'slave1'], 
+   [application_platform: 'Test',application_name:'smp',scm: 'git@git.drfirst.com:devops-se/chef-dev-rcopia.git',dev:'devuda',qa:'devuda',sysOps:'devuda',label:'slave1'], 
  
 ]
 
