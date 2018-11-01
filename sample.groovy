@@ -48,6 +48,11 @@ command('''echo hello''')
       preBuildCleanup{
        cleanupParameter()}
     }
+	dsl {
+  external('./test.groovy')
+            removeAction('DELETE')
+
+}
       publishers {
         wsCleanup()
     }
