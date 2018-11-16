@@ -48,15 +48,10 @@ command('''echo hello''')
       preBuildCleanup{
        cleanupParameter()}
     }
-	dsl {
-  external('./test.groovy')
-            removeAction('DELETE')
-
-}
-      publishers {
+ publishers {
         wsCleanup()
     }
-     }
+  }
 
        job("${application_platform}_${application_name}_Dev-Promotion") {
   steps {
