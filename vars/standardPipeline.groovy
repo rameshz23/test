@@ -2,7 +2,7 @@ import hudson.model.Result
 import org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper
 
 	
-def call(cicdProjects) = [
+def cicdProjects = [
 
  [application_platform: 'Test',application_name:'smp',scm: 'git@git.drfirst.com:devops-se/chef-dev-rcopia.git',dev:'devuda',qa:'devuda',sysOps:'devuda',label:'slave1'], 
  
